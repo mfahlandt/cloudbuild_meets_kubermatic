@@ -1,6 +1,10 @@
 steps:
+  - name: gcr.io/cloud-builders/go
+    args: ['get', '-t', '-u', './...']
+    env: ['PROJECT_ROOT=${REPO_NAME}']
   - name: 'gcr.io/cloud-builders/go'
-    args: ['test', '-v']
+    args: ['test', './...']
+    env:  ['PROJECT_ROOT=${REPO_NAME}']
   - name: 'gcr.io/cloud-builders/docker'
     args:
       - build
