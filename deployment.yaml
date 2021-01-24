@@ -1,12 +1,12 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name:  server
+  name:  nodeJs
   labels:
     app: nodeJs
 spec:
   selector:
-    app:  server
+    app:  nodeJs
   ports:
     - name:  server
       protocol: TCP
@@ -17,7 +17,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: server
+  name: nodeJs
   labels:
     app: nodeJs
 spec:
