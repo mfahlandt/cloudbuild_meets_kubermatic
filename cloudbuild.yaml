@@ -18,6 +18,9 @@ steps:
       - apply
       - -f
       - deployment.yaml
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=$_CLUSTER_ZONE'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=$_CLUSTER_NAME'
   - name: 'gcr.io/cloud-builders/kubectl'
     waitFor:
       - deployment
