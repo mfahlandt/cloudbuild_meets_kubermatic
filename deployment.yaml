@@ -1,14 +1,14 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name:  server
+  name:  test
   labels:
-    app: server
+    app: test
 spec:
   selector:
-    app:  server
+    app:  test
   ports:
-    - name:  server
+    - name:  test
       protocol: TCP
       port: 80
       targetPort: 8080
@@ -17,13 +17,13 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: server
+  name: test
   labels:
-    app: server
+    app: test
 spec:
   selector:
     matchLabels:
-      app: server
+      app: test
   replicas: 1
   strategy:
     type: RollingUpdate
@@ -33,10 +33,10 @@ spec:
   template:
     metadata:
       labels:
-        app: server
+        app: test
     spec:
       containers:
-        - name: server
+        - name: test
           image: 'placeholder'
           ports:
             - containerPort: 8080
