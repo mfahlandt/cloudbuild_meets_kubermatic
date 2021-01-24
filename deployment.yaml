@@ -2,6 +2,8 @@ kind: Service
 apiVersion: v1
 metadata:
   name:  server
+  labels:
+    app: nodeJs
 spec:
   selector:
     app:  server
@@ -16,7 +18,12 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: server
+  labels:
+    app: nodeJs
 spec:
+  selector:
+    matchLabels:
+      app: nodeJs
   replicas: 1
   strategy:
     type: RollingUpdate
